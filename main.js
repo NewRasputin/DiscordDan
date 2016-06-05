@@ -30,6 +30,9 @@ mybot.on("message", function (message) {
             mybot.reply(message, "rolled a " + results + ".");
         }
     }
+    if (message.content === "!help") {
+        mybot.sendMessage(message, "     ------------------- Discord Dan -------------------     \n     !cointoss --------------------------- Flip a coin!\n     !diceroll <# of sides> <# of die> --- Rolls die!\n     ");
+    }
 });
 
 mybot.loginWithToken("token");
