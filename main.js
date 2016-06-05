@@ -20,14 +20,14 @@ mybot.on("message", function (message) {
         else{
             var sides = inputs[1];
             var die = inputs[2];
-            mybot.reply(message, "Rolling " + die + " " + sides + " sided die!");
+            mybot.reply(message, "rolls " + die + " " + sides + " sided die!");
             var rolls = [];
             for (var i = 0, len = die; i < len; i++) {
-                var roll = (Math.floor(Math.random() * sides));
+                var roll = (Math.floor(Math.random() * (sides - 1)+ 1 ));
                 rolls.push(roll);
             }
-            var results = rolls.join(" and ");
-            mybot.reply(message, results);
+            var results = rolls.join(" and a ");
+            mybot.reply(message, "rolled a " + results + ".");
         }
     }
 });
