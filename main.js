@@ -3,6 +3,18 @@ var Discord = require("discord.js");
 var mybot = new Discord.Client();
 
 mybot.on("message", function (message) {
+    var adminid = message.channel.server.roles.get("name", "Admin").id;
+    if (message.author.hasRole(adminid)) {
+        //admin commands
+    }
+    if (message.content === "!admin") {
+        if (message.author.hasRole(adminid)) {
+            mybot.sendMessage(message.channel, "Whoah " + message.author + ", it is looking like you are an administrator my dude!");
+        }
+        else  {
+            
+        }
+    }
     if (message.content === "!cointoss") {
         var coin = (Math.floor(Math.random() * 2) === 0);
         if (coin) {
@@ -36,4 +48,3 @@ mybot.on("message", function (message) {
 });
 
 mybot.loginWithToken("token");
-
